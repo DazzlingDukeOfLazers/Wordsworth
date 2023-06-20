@@ -1,3 +1,8 @@
+# script output
+svg/
+metadata/
+words/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
