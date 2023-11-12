@@ -26,22 +26,25 @@ def main():
     args = noun.parse_arguments()
     search_term = args.search
 
-    # get metadata from noun project
-    metadata = noun.search_icons(search_term)
+    noun.search_and_save(search_term)
 
-    if metadata is not None:
-        # save the metadata to a json file
-        noun.save_metadata(search_term, metadata)
+    # # get metadata from noun project
+    # metadata = noun.search_icons(search_term, only_public_domain=1, thumbnail_size=42, include_svg=1, limit=1)
+    # # metadata = noun.search_icons(search_term)
 
-        icon_id = metadata["icons"][0]["id"]
+    # if metadata is not None:
+    #     # save the metadata to a json file
+    #     noun.save_metadata(search_term, metadata)
 
-        # save the svg file
-        noun.save_svg_file(search_term, icon_id)
+    #     icon_id = metadata["icons"][0]["id"]
 
-        definition = word_book.get_definitions(search_term)
-        word_dict = {"word": f"{search_term}",
-                     "definition": f"{definition[0]}"}
-        word_book.save_dict(word_dict)
+    #     # save the svg file
+    #     noun.save_icon_to_file(search_term, icon_id, file_format="png")
+
+    #     definition = word_book.get_definitions(search_term)
+    #     word_dict = {"word": f"{search_term}",
+    #                  "definition": f"{definition[0]}"}
+    #     word_book.save_dict(word_dict)
 
 
 if __name__ == "__main__":
